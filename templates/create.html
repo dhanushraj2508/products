@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create page</title>
+  </head>
+  <body>
+  <center>
+    <h2>Add New Product Details</h2><hr>
+    <form method="POST">
+      {% csrf_token %}
+    <table border="2">
+        <tr>
+        <td>Product Company</td>
+        <td><input type="text" name="productcompany" placeholder="Company Name.."></td></tr>
+        <tr>
+        <td>Product Name</td>
+        <td><input type="text" name="productname" placeholder="Product Name.."></td></tr>
+        <tr>
+        <td>Product Price</td>
+        <td><input type="text" name="productprice" placeholder="Fix the price.."></td></tr>
+    </table><br>
+        <input type="submit" value="Insert Record"><br><br>
+        <a href="{% url 'pddisply'%}">Index Page</a>
+        <hr>
+        {% if messages %}
+        {% for result in messages %}
+        <b style="color:green">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+        </form>
+  </center>
+  </body>
+</html>

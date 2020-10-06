@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Index page</title>
+  </head>
+  <body>
+  <center>
+    <h1>Welcome</h1><hr>
+    <a href="{% url 'pdinsert'%}">Add More Product Details</a><br><br>
+    <table border="2">
+    <tr>
+      <th>S No.</th>
+      <th>Product Company</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    {% for pddisply in product%}
+    <tr>
+      <td>{{pddisply.id}}</td>
+      <td>{{pddisply.productcompany}}</td>
+      <td>{{pddisply.productname}}</td>
+      <td>{{pddisply.productprice}}</td>
+      <td><a href="/edit/{{pddisply.id}}">Edit</a></td>
+      <td><a href="/delete/{{pddisply.id}}" onclick="return confirm('Are you sure you want to DELETE..?')">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+  </center>
+  </body>
+</html>

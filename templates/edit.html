@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Page</title>
+  </head>
+  <body>
+    <center>
+      <h1>Edit and Update Product Details</h1>
+      <h2>The Product Id is {{product.id}}</h2><hr>
+      <form method="POST" action="/update/{{product.id}}">
+        {% csrf_token %}
+      <table border="2">
+      <tr>
+        <td>Product Company</td>
+        <td><input type="text" name="productcompany" value="{{product.productcompany}}">
+      </tr>
+      <tr>
+        <td>Product Name</td>
+        <td><input type="text" name="productname" value="{{product.productname}}">
+      </tr>
+      <tr>
+        <td>Product Price</td>
+        <td><input type="text" name="productprice" value="{{product.productprice}}">
+      </tr>
+      </table>  <br>
+      <input type="submit" value="Update"><br>
+      <a href="{% url 'pddisply'%}">Index Page</a><hr>
+      {% if messages %}
+      {% for result in messages %}
+      <b style="color:green">{{result}}</b>
+      {% endfor %}
+      {% endif %}
+      </form>
+    </center>
+  </body>
+</html>
